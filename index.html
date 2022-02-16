@@ -73,19 +73,21 @@
                 <div class="block md:flex justify-center items-center mb-5">
                     <div class="flex mb-5 md:mb-0 items-center justify-center">
                         <h5 class="text-lg font-medium mr-2">Save:</h5>
-                        <input class="text-lg font-medium p-2" type="text">
+                        <input id="save-field" class="text-lg font-medium p-2" type="text">
                         <h5 class="text-lg font-medium mx-2">%</h5>
                     </div>
-                    <div class="flex justify-center items-center"><button
-                            class="text-white bg-purple-800 py-2 px-8 rounded-md text-2xl">Save</button></div>
+                    <div class="flex justify-center items-center">
+                        <button id="save-button"
+                            class="text-white bg-purple-800 py-2 px-8 rounded-md text-2xl">Save</button>
+                    </div>
                 </div>
                 <div class="flex md:mt-5">
                     <h5 class="font-bold text-xl text-center md:text-2xl mb-2 mr-2">Saving Amount:</h5>
-                    <h5 class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
+                    <h5 id="saving-amount" class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
                 </div>
                 <div class="flex md:mt-2">
                     <h5 class="font-bold text-xl text-center md:text-2xl mb-2 mr-2">Remaining Balance:</h5>
-                    <h5 class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
+                    <h5 id="balance-remaining" class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
                 </div>
             </div>
         </div>
