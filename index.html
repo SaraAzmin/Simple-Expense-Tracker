@@ -31,7 +31,7 @@
     <section class="md:mx-20 md:mb-0 mb-10">
         <div class="grid sm:grid-cols-1 lg:grid-cols-2 md:gap-4">
             <!-- image part -->
-            <div class="flex justify-center items-center md:my-0 my-5">
+            <div class="flex justify-center items-center md:my-0 my-5 md:h-96">
                 <img class="w-2/4 " src="images/pic2.png" alt="">
             </div>
 
@@ -61,11 +61,21 @@
                 </div>
                 <button id="calculate-button"
                     class="text-white bg-purple-800 py-2 px-8 rounded-md text-2xl">Calculate</button>
-                <div class="flex mt-5">
-                    <h5 class="font-bold text-xl text-center md:text-2xl mb-2 mr-2">Total Expenses:</h5>
-                    <h5 id="expense-amount" class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
+                <p id="neg-number-error" class="bg-white p-1 mt-2 rounded-md border-slate-300 border-2 hidden">❌ Input
+                    cannot
+                    be negative number, Please try again</p>
+                <p id="not-number-error" class="bg-white p-1 mt-2 rounded-md border-slate-300 border-2 hidden">❌ Input
+                    must be
+                    number, Please try again</p>
+                <p id="blank-input-error" class="bg-white mt-2 rounded-md border-slate-300 border-2 hidden">❌
+                    Input cannot be blank, Please try again.</p>
+                <p id="over-expense-error" class="bg-white mt-2 rounded-md border-slate-300 border-2 hidden">❌
+                    Expense cannot be more than income, Please try again.</p>
+                <div class="flex mt-10">
+                    <h5 class="font-bold text-xl text-center md:text-2xl mr-2">Total Expenses:</h5>
+                    <h5 id="expense-amount" class="font-bold text-xl text-center md:text-2xl">0</h5>
                 </div>
-                <div class="flex my-4">
+                <div class="flex my-2">
                     <h5 class="font-bold text-xl text-center md:text-2xl mb-2 mr-2">Balance:</h5>
                     <h5 id="balance-amount" class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
                 </div>
@@ -82,11 +92,21 @@
                             class="text-white bg-purple-800 py-2 px-8 rounded-md text-2xl">Save</button>
                     </div>
                 </div>
-                <div class="flex md:mt-5">
-                    <h5 class="font-bold text-xl text-center md:text-2xl mb-2 mr-2">Saving Amount:</h5>
-                    <h5 id="saving-amount" class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
+                <p id="save-neg-number-error" class="bg-white p-1 mt-2 rounded-md border-slate-300 border-2 hidden">❌
+                    Input
+                    cannot
+                    be negative number, Please try again</p>
+                <p id="save-not-number-error" class="bg-white p-1 mt-2 rounded-md border-slate-300 border-2 hidden">❌
+                    Input
+                    must be
+                    number, Please try again</p>
+                <p id="over-saving-error" class="bg-white mt-2 rounded-md border-slate-300 border-2 hidden">❌
+                    Not enough balance for saving, Please try again.</p>
+                <div class="flex md:mt-10">
+                    <h5 class="font-bold text-xl text-center md:text-2xl mr-2">Saving Amount:</h5>
+                    <h5 id="saving-amount" class="font-bold text-xl text-center md:text-2xl">0</h5>
                 </div>
-                <div class="flex md:mt-2">
+                <div class="flex my-2">
                     <h5 class="font-bold text-xl text-center md:text-2xl mb-2 mr-2">Remaining Balance:</h5>
                     <h5 id="balance-remaining" class="font-bold text-xl text-center md:text-2xl mb-2">0</h5>
                 </div>
