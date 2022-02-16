@@ -4,6 +4,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const food = getInputValue('food-field');
     const rent = getInputValue('rent-field');
     const clothes = getInputValue('clothes-field');
+
     if (income >= 0 && food >= 0 && rent >= 0 && clothes >= 0) {
         calculateExpenseAndBalance(income, food, rent, clothes);
     }
@@ -23,14 +24,23 @@ function getInputValue(inputId) {
 //function to calculate expenses and balance
 function calculateExpenseAndBalance(income, food, rent, clothes) {
 
+    //expenses calculation
     const expenseField = document.getElementById('expense-amount');
     let expenses = food + rent + clothes;
-    expenseField.innerText = expenses;
 
-    const balanceField = document.getElementById('balance-amount');
-    let balance = income - expenses;
-    balanceField.innerText = balance;
-    return balance;
+    if (expenses <= income) {
+        expenseField.innerText = expenses;
+
+        //balance after expenses
+        const balanceField = document.getElementById('balance-amount');
+        let balance = income - expenses;
+        balanceField.innerText = balance;
+        return balance;
+    }
+    else {
+        console.log('cannot spend more than income');
+    }
+
 }
 
 //click event for save button
@@ -54,14 +64,24 @@ function calculateSavingAndBalance(savePercent) {
     const food = getInputValue('food-field');
     const rent = getInputValue('rent-field');
     const clothes = getInputValue('clothes-field');
-    let saving = (income * savePercent) / 100;
-
-    const savingAmount = document.getElementById('saving-amount');
-    savingAmount.innerText = saving;
-
     const balance = calculateExpenseAndBalance(income, food, rent, clothes);
-    balanceRemaining = balance - saving;
-    const balanceRemainingField = document.getElementById('balance-remaining');
-    balanceRemainingField.innerText = balanceRemaining;
+
+    //saving calculation
+    let saving = (income * savePercent) / 100;
+    const savingAmount = document.getElementById('saving-amount');
+
+    //if balance is less than saving saving not possible, remaining balance is not calculated
+    //otherwise remaining balance will give negative value
+    if (savingAmount <= balance) {
+        savingAmount.innerText = saving;
+
+        //balance after saving
+        balanceRemaining = balance - saving;
+        const balanceRemainingField = document.getElementById('balance-remaining');
+        balanceRemainingField.innerText = balanceRemaining;
+    }
+    else {
+        console.log('not enough money for saving');
+    }
 
 }
