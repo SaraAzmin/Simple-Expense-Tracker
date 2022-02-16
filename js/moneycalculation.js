@@ -4,7 +4,12 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const food = getInputValue('food-field');
     const rent = getInputValue('rent-field');
     const clothes = getInputValue('clothes-field');
-    calculateExpenseAndBalance(income, food, rent, clothes);
+    if (income >= 0 && food >= 0 && rent >= 0 && clothes >= 0) {
+        calculateExpenseAndBalance(income, food, rent, clothes);
+    }
+    else if (isNaN(income) || isNaN(food) || isNaN(rent) || isNaN(clothes)) {
+        console.log('not number');
+    }
 
 })
 
@@ -15,6 +20,7 @@ function getInputValue(inputId) {
     return inputField;
 }
 
+//function to calculate expenses and balance
 function calculateExpenseAndBalance(income, food, rent, clothes) {
 
     const expenseField = document.getElementById('expense-amount');
@@ -30,9 +36,18 @@ function calculateExpenseAndBalance(income, food, rent, clothes) {
 //click event for save button
 document.getElementById('save-button').addEventListener('click', function () {
     const savePercent = getInputValue('save-field');
-    calculateSavingAndBalance(savePercent);
+    if (savePercent >= 0) {
+        calculateSavingAndBalance(savePercent);
+    }
+    else if (isNaN(savePercent)) {
+        console.log('not number');
+    }
+    else if (savePercent < 0) {
+        console.log('negative');
+    }
 })
 
+//function to calculate saving and remaining balance after saving
 function calculateSavingAndBalance(savePercent) {
 
     const income = getInputValue('income-field');
