@@ -1,6 +1,6 @@
 //click event for calculate button
 document.getElementById('calculate-button').addEventListener('click', function () {
-    const income = getInputValue('income-field');
+    let income = getInputValue('income-field');
     const food = getInputValue('food-field');
     const rent = getInputValue('rent-field');
     const clothes = getInputValue('clothes-field');
@@ -16,12 +16,51 @@ document.getElementById('calculate-button').addEventListener('click', function (
     }
     else if (isNaN(income) || isNaN(food) || isNaN(rent) || isNaN(clothes)) {
 
-        notNumberError.style.display = 'block';
-        negNumberError.style.display = 'none';
+        //show which input field has the NaN issue
+        if (isNaN(income)) {
+            notNumberError.innerText = '❌ Income must be number, Please try again';
+            notNumberError.style.display = 'block';
+            negNumberError.style.display = 'none';
+        }
+        else if (isNaN(food)) {
+            notNumberError.innerText = '❌ Food must be number, Please try again';
+            notNumberError.style.display = 'block';
+            negNumberError.style.display = 'none';
+        }
+        else if (isNaN(rent)) {
+            notNumberError.innerText = '❌ Rent must be number, Please try again';
+            notNumberError.style.display = 'block';
+            negNumberError.style.display = 'none';
+        }
+        else if (isNaN(clothes)) {
+            notNumberError.innerText = '❌ Clothes must be number, Please try again';
+            notNumberError.style.display = 'block';
+            negNumberError.style.display = 'none';
+        }
     }
     else if (income < 0 || food < 0 || rent < 0 || clothes < 0) {
-        negNumberError.style.display = 'block';
-        notNumberError.style.display = 'none';
+
+        //show which input field has negative number
+        if (income < 0) {
+            negNumberError.innerText = '❌Income cannot be negative number, Please try again';
+            negNumberError.style.display = 'block';
+            notNumberError.style.display = 'none';
+        }
+        else if (food < 0) {
+            negNumberError.innerText = '❌Food cannot be negative number, Please try again';
+            negNumberError.style.display = 'block';
+            notNumberError.style.display = 'none';
+        }
+        else if (rent < 0) {
+            negNumberError.innerText = '❌Rent cannot be negative number, Please try again';
+            negNumberError.style.display = 'block';
+            notNumberError.style.display = 'none';
+        }
+        else if (clothes < 0) {
+            negNumberError.innerText = '❌Clothes cannot be negative number, Please try again';
+            negNumberError.style.display = 'block';
+            notNumberError.style.display = 'none';
+        }
     }
 })
 
