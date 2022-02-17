@@ -5,7 +5,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const rent = getInputValue('rent-field');
     const clothes = getInputValue('clothes-field');
 
-    //error-messeges
+    //error-messeges for not number and negative number input
     const notNumberError = document.getElementById('not-number-error');
     const negNumberError = document.getElementById('neg-number-error');
 
@@ -13,7 +13,6 @@ document.getElementById('calculate-button').addEventListener('click', function (
         notNumberError.style.display = 'none';
         negNumberError.style.display = 'none';
         calculateExpenseAndBalance(income, food, rent, clothes);
-
     }
     else if (isNaN(income) || isNaN(food) || isNaN(rent) || isNaN(clothes)) {
 
@@ -47,6 +46,7 @@ function calculateExpenseAndBalance(income, food, rent, clothes) {
     const balanceField = document.getElementById('balance-amount');
     let balance = income - expenses;
 
+    //checking if expense is less than income
     if (expenses <= income) {
         overExpenseError.style.display = 'none';
         expenseField.innerText = expenses;
@@ -61,14 +61,13 @@ function calculateExpenseAndBalance(income, food, rent, clothes) {
         expenseField.innerText = '0';
         balanceField.innerText = '0';
     }
-
 }
 
 //click event for save button
 document.getElementById('save-button').addEventListener('click', function () {
     const savePercent = getInputValue('save-field');
 
-    //error-messeges
+    //error-messeges for not number and negative number saving input
     const notNumberError = document.getElementById('save-not-number-error');
     const negNumberError = document.getElementById('save-neg-number-error');
 
@@ -108,7 +107,7 @@ function calculateSavingAndBalance(savePercent) {
     balanceRemaining = balance - saving;
     const balanceRemainingField = document.getElementById('balance-remaining');
 
-    //if balance is less than saving saving not possible, remaining balance is not calculated
+    //if balance is less than saving not possible, remaining balance is not calculated
     //otherwise remaining balance will give negative value
     if (saving <= balance) {
 
